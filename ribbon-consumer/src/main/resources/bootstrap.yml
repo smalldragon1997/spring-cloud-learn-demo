@@ -1,0 +1,23 @@
+###服务注册到eureka注册中心的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+spring:
+  application:
+    name: ribbon-consumer
+  cloud:
+    config:
+      name: ribbon-consumer # 应用名
+#      uri: http://localhost:9999/  #配置中心的地址
+      profile: test # 环境名
+      label: master #对应的分支
+      discovery:
+        enabled: true #启用发现服务功能
+        service-id: config-server #指定配置中心工程的名称
+#开启所有端点 refresh config
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

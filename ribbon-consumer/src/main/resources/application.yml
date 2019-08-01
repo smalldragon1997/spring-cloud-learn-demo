@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ribbon-consumer
+server:
+  port: 8090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#¿ªÆôhystrix¶ÏÂ·Æ÷
+feign:
+  hystrix:
+    enabled: true
